@@ -1,95 +1,87 @@
-Apuntes generales: Desarrollo de aplicaciones con Angular y Spring Boot 3
+# Proyecto Full-Stack con Angular y Spring Boot 3
 
-El desarrollo moderno de aplicaciones web suele integrar un frontend construido con frameworks como Angular y un backend robusto basado en Spring Boot 3. Esta combinación permite crear aplicaciones SPA (Single Page Application) con APIs RESTful seguras, conectadas a bases de datos y listas para despliegue en producción.
+Este proyecto integra un **frontend** desarrollado con **Angular** y un **backend** con **Spring Boot 3**, conectados a través de **APIs RESTful**.  
+La arquitectura está pensada para construir aplicaciones **SPA (Single Page Application)** seguras, escalables y listas para producción.
 
-Frontend: Angular
+---
 
-Angular es un framework de JavaScript (con TypeScript) creado por Google, diseñado para construir aplicaciones web asíncronas, reactivas y escalables.
+## 🚀 Tecnologías principales
 
-Conceptos clave en un proyecto Angular
+- **Frontend**: Angular 17+ (compatible con versiones anteriores desde Angular 12 hasta 18)
+- **Backend**: Spring Boot 3 (Java + Spring Framework 6)
+- **Base de datos**: JPA / Hibernate
+- **Seguridad**: Spring Security + JWT
+- **Estado global**: Redux / NgRx
+- **Comunicación en tiempo real**: WebSockets (SockJS, StompJS)
+- **Despliegue**: AWS (EC2, RDS, S3) / Docker
 
-Componentes: Bloques fundamentales que encapsulan la lógica, la vista (HTML) y los estilos.
+---
 
-Directivas: Modifican el comportamiento de elementos del DOM.
+## 📌 Frontend (Angular)
 
-Pipes: Transforman datos en las vistas (ej. fechas, monedas, textos).
+Angular es un framework creado por Google para construir aplicaciones **web reactivas, modulares y escalables**.
 
-Services: Clases que contienen lógica reutilizable y permiten comunicación entre componentes y el backend.
+### Conceptos clave
+- **Componentes** → Bloques que encapsulan vista, lógica y estilos.  
+- **Directivas** → Alteran el comportamiento de elementos del DOM.  
+- **Pipes** → Transforman datos directamente en la vista (ej. fechas, texto, monedas).  
+- **Services** → Lógica reutilizable, comunicación con backend.  
+- **Routing** → Navegación entre vistas y parámetros en la URL.  
+- **Formularios (Template-driven & Reactive)** → Captura y validación de datos.  
+- **HTTPClient** → Peticiones asíncronas con verbos HTTP (GET, POST, PUT, DELETE).  
+- **Observables (RxJS)** → Flujos de datos reactivos para manejar eventos y respuestas.  
+- **Redux / NgRx** → Gestión del estado global de la aplicación.  
+- **Interceptors** → Añadir cabeceras (JWT), manejar errores, refrescar tokens.  
+- **WebSockets (SockJS, StompJS)** → Comunicación en tiempo real (ej. chat, notificaciones).  
 
-Routing: Sistema de enrutamiento para la navegación entre vistas y manejo de parámetros en la URL.
+---
 
-Formularios (Template-driven y Reactive Forms): Para capturar y validar datos de los usuarios.
+## 📌 Backend (Spring Boot 3)
 
-HTTPClient: Módulo para realizar peticiones asíncronas al backend usando verbos HTTP (GET, POST, PUT, DELETE).
+Spring Boot permite construir **APIs RESTful seguras y escalables** con mínima configuración.
 
-Observables (ReactiveX / RxJS): Manejo de flujos de datos asíncronos y eventos.
+### Conceptos clave
+- **Spring MVC** → Controladores REST para manejar peticiones HTTP.  
+- **Entidades (JPA/Hibernate)** → Mapear clases Java a tablas de base de datos.  
+- **Repositorios (Spring Data JPA)** → Operaciones CRUD automáticas.  
+- **DTOs** → Transferencia de datos entre capas.  
+- **Validaciones** → Integridad de datos con anotaciones (@NotNull, @Email, etc).  
+- **Manejo de excepciones** → Control centralizado de errores.  
+- **Spring Security + JWT** → Autenticación y autorización seguras.  
+- **Paginación y ordenación** → Control de resultados en las consultas.  
+- **Subida de archivos** → Manejo de contenido multimedia.  
+- **CORS** → Comunicación segura entre frontend y backend.  
+- **Swagger / OpenAPI** → Documentación automática de la API.  
+- **Testing (JUnit, Mockito)** → Pruebas unitarias e integración.  
 
-Redux / NgRx: Gestión del estado global de la aplicación para mantener consistencia en aplicaciones grandes.
+---
 
-Interceptors: Para interceptar peticiones HTTP y añadir cabeceras (ej. tokens JWT) o manejar errores.
+## 🔗 Integración Frontend - Backend
 
-WebSockets (SockJS, StompJS): Comunicación en tiempo real entre cliente y servidor (ej. chat en vivo).
+- El **frontend (Angular)** consume servicios REST expuestos por el **backend (Spring Boot)**.  
+- Las peticiones viajan en formato **JSON** y usan **observables** para manejar datos de forma reactiva.  
+- La seguridad se gestiona mediante **JWT**:  
+  - El usuario se autentica y recibe un token.  
+  - El token se envía en cada petición para acceder a recursos protegidos.  
 
-Backend: Spring Boot 3 (Java + Spring Framework 6)
+---
 
-Spring Boot permite crear aplicaciones Java listas para producción con una configuración mínima, facilitando la construcción de APIs RESTful seguras y escalables.
+## ☁️ Despliegue en Producción
 
-Conceptos clave en un proyecto con Spring Boot
+Opciones comunes para llevar el proyecto a producción:  
+- **AWS EC2** → Backend desplegado en un servidor virtual.  
+- **AWS RDS** → Base de datos relacional gestionada.  
+- **AWS S3** → Almacenamiento de archivos estáticos.  
+- **Docker & Kubernetes** → Contenedores y orquestación.  
 
-Spring MVC: Arquitectura para exponer controladores REST y manejar peticiones HTTP.
+---
 
-Entidades (JPA/Hibernate): Representación de tablas de la base de datos en objetos Java.
+## 📖 Resumen
 
-Repositorios (Spring Data JPA): Interfaces que simplifican las operaciones CRUD sin escribir SQL manual.
+Este proyecto combina:
+- **Frontend Angular** → dinámico, modular y reactivo.  
+- **Backend Spring Boot 3** → robusto, seguro y conectado a bases de datos.  
+- **Comunicación** → APIs RESTful + JWT + WebSockets.  
+- **Prácticas avanzadas** → Validación, paginación, subida de archivos, deploy en la nube y pruebas automatizadas.  
 
-DTOs (Data Transfer Objects): Objetos que permiten transferir datos entre el backend y el frontend de forma controlada.
-
-Validaciones: Anotaciones para garantizar integridad en la entrada de datos (ej. @NotNull, @Email).
-
-Manejo de excepciones: Control centralizado de errores para dar respuestas claras a la API.
-
-Spring Security + JWT (JSON Web Token): Autenticación y autorización seguras basadas en tokens.
-
-Paginación y ordenación: Control del número de resultados devueltos por la API.
-
-Subida de archivos: Manejo de contenido multimedia desde el frontend hacia el backend.
-
-CORS (Cross-Origin Resource Sharing): Configuración para permitir que Angular consuma servicios de Spring Boot desde otro dominio.
-
-Swagger/OpenAPI: Generación de documentación automática para las APIs RESTful.
-
-Testing (JUnit, Mockito): Pruebas unitarias e integración para garantizar calidad del backend.
-
-Integración Frontend - Backend
-
-La comunicación entre Angular y Spring Boot se realiza a través de APIs RESTful y, en algunos casos, WebSockets.
-
-Angular realiza peticiones HTTP al backend para CRUD (crear, leer, actualizar, eliminar) sobre entidades de la base de datos.
-
-El backend responde en formato JSON, que Angular consume y procesa en componentes y servicios.
-
-JWT asegura las rutas privadas: el cliente guarda el token tras autenticarse y lo envía en cada petición.
-
-Despliegue y Producción
-
-Una vez completada la aplicación, se prepara el deploy en entornos locales o en la nube:
-
-AWS EC2: Para alojar el backend en un servidor virtual.
-
-AWS RDS: Para bases de datos relacionales gestionadas.
-
-AWS S3: Para almacenamiento de archivos estáticos.
-
-Alternativas: contenedores con Docker y orquestación con Kubernetes.
-
-Resumen
-
-Un proyecto con Angular + Spring Boot 3 integra lo mejor del frontend y backend:
-
-Frontend dinámico, reactivo y modular con Angular.
-
-Backend seguro, escalable y conectado a bases de datos con Spring Boot.
-
-Comunicación mediante APIs REST y seguridad con JWT.
-
-Opciones avanzadas: validaciones, paginación, subida de archivos, despliegue en la nube y pruebas automatizadas.
+---
